@@ -15,13 +15,13 @@
   </head>
   <body>
     <script>
-      window.AtomicEmberENV = {{ENV}};
-      window.EmberENV = window.AtomicEmberENV.EmberENV;
+      window.PresentationENV = {{ENV}};
+      window.EmberENV = window.PresentationENV.EmberENV;
     </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/atomic-ember.js"></script>
     <script>
-      window.AtomicEmber = require('atomic-ember/app')['default'].create(AtomicEmberENV.APP);
+      window.PresentationEmber = require('atomic-ember/app')['default'].create(PresentationENV.APP);
     </script>
   </body>
 </html>

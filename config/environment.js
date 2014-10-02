@@ -1,4 +1,6 @@
 /* jshint node: true */
+var yaml = require('yamljs');
+var path = require('path');
 
 module.exports = function(environment) {
   var ENV = {
@@ -9,13 +11,15 @@ module.exports = function(environment) {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
-      }
+      },
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    SLIDES: yaml.load(path.join(__dirname, 'slides.yaml'))
   };
 
   if (environment === 'development') {

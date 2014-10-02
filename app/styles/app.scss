@@ -4,7 +4,7 @@
 html, body {
 	margin: 0;
  	padding: 0;
- 	
+
 }
 
 h1,h2,h3 {
@@ -88,4 +88,10 @@ h1,h2 {
 		border: 2px solid #000;
 		color: #000;
 	}
+
+  .nav {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
 }
