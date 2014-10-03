@@ -12,7 +12,10 @@
     "ember-qunit": "0.1.8",
     "ember-qunit-notifications": "0.0.4",
     "qunit": "~1.15.0",
-    "foundation": "~5.1.0"
+    "foundation": "~5.1.0",
+    "marked": "~0.3.2",
+    "highlight": "~7.0.1",
+    "highlightjs": "~8.0.0"
   },
   "resolutions": {
     "jquery": "^1.11.1"

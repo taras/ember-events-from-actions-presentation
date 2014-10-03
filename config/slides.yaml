@@ -7,66 +7,98 @@
     - showing tooltips
     - scroll element into view
 - id: 3
-  title: Example from Ember Guides [link](http://emberjs.com/guides/templates/actions/#toc_specifying-a-target)
-  copy: Trigger action on view with target argument
+  title: Example from Ember Guides
+  copy: Trigger action on view with target parameter
   markdown: >
+    
     ```handlebars
+    
     {{action 'say' 'Hello' target=view}}
+    
     ```
-
-    [Example](http://emberjs.jsbin.com/lekeyo/4)
-
-    **Pros**
+    
+    
+    #### Pros
+    
     * simple
+    
     * built into Ember
-
-    **Cons**
+    
+    
+    #### Cons
+    
     * action doesn't bubble up
+    
     * every view that triggers tooltip needs mixin with action
+    
+    
+    #### [Source](http://emberjs.com/guides/templates/actions/#toc_specifying-a-target) | [Example](http://emberjs.jsbin.com/lekeyo/4)
 - id: 4
-  title: With Ember.Evented
-  copy: By adding Ember.Evented mixin to controller and binding View to the controller's event, allows you to fire events from controller to view.
+  title: Fire an event with Ember.Evented
+  bullets:
+    - Add Ember.Evented mixin to controller
+    - Bind View to the controller's event
+    - Trigger event on controller
+- id: 5
+  title: Fire an event with Ember.Evented
+  copy: The Code
   markdown: >
     ```javascript
-      App.IndexController = Ember.ArrayController.extend(Ember.Evented, {
-        actions: {
-          say: function(message) {
-            this.trigger('say', message);
-            return true;
-          }
-        }
-      });
-
-      App.IndexView = Ember.View.extend({
-        bindToController: function() {
-          this.get('controller').on('say', this, this.say);
-        }.observes('controller'),
+    
+    App.IndexController = Ember.ArrayController.extend(Ember.Evented, {
+      
+      actions: {
         say: function(message) {
-          alert('View says: ' + message);
+          this.trigger('say', message);
+          return true;
         }
-      });
+      }
+    });
+    
+    
+    App.IndexView = Ember.View.extend({
+      
+      bindToController: function() {
+        this.get('controller').on('say', this, this.say);
+      }.observes('controller'),
+      say: function(message) {
+        alert('View says: ' + message);
+      }
+    });
+    
     ```
-
-    Example: [jsbin](http://emberjs.jsbin.com/babeqi/4)
-
-    **Pros**:
-
-    * Bubbles
+- id: 6
+  title: Fire an event with Ember.Evented
+  copy: Summary
+  markdown: >
+    ### Pros
+      
+    * Bubbles up
+    
     * Built into Ember
-
-    **Cons**
-
+    
+    
+    ### Cons
+    
     * Verbose
+    
     * Requires mixin for every view that will use this functionality
-- id: 5
+    
+    
+    #### Example: [jsbin](http://emberjs.jsbin.com/babeqi/4)
+- id: 7
   title: Using {{on-action}} with component
+  copy: Code
   markdown: >
     ```handlebars
-       {{#say-handler}}
-         {{on-action 'say'}}
-       {{/say-handler}}
+      
+      {{#say-handler}}
+        {{on-action 'say'}}
+      {{/say-handler}}
+    
      ```
-
+     
+     
      ```javascript
       App.SayHandlerComponent = Ember.Component.extend({
         say: function(message) {
@@ -74,18 +106,23 @@
         }
      });
      ```
-
-     Example: [jsbin](http://emberjs.jsbin.com/rizaza/3/)
-
-     **Pros**
-
+- id: 8
+  title: Using {{on-action}} with component
+  copy: Summary
+  markdown: >
+     
+     ### Pros
+     
      * Explicit
+     
      * Portable
-
-     **Cons**:
-
+     
+     
+     ### Cons
+       
      * Requires that you add handler to views where you want to use it
+     
      * Requires an external plugin - [ember-dom-actions](https://github.com/taras/ember-dom-actions)
-- id: 6
+- id: 9
   title: That's it.
   copy: Thoughts? Questions?

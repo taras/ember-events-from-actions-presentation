@@ -30,6 +30,12 @@ App.ArrayTransform = DS.Transform.extend({
 	}
 });
 
+marked.setOptions({
+  highlight: function (code) {
+    return hljs.highlightAuto(code).value;
+  }
+});
+
 loadInitializers(App, 'atomic-ember');
 
 export default App;

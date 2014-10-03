@@ -20,12 +20,14 @@
   {{/if}}
 </div>
 
+{{#if model.markdown}}
 <div class="row" >
 	<div class="small-12 large-12 columns">
-		{{{model.markdown}}}
+		{{{render-markdown model.markdown}}}
 		<img {{bind-attr src=model.image}}>
 	</div>
 </div>
+{{/if}}
 
 <div class="row subcopy" >
 	<div class="small-12 large-12 columns">
